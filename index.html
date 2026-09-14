@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | Groom's Side</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #8B0000; /* Royal Deep Crimson */
+            --accent-gold: #D4AF37; /* Metallic Gold */
+            --text-dark: #2C2C2C;
+            --bg-light: #FAFAFA;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            padding: 20px;
+        }
+
+        .hero h3 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 3px;
+            font-size: 1.1rem;
+            color: var(--accent-gold);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .hero h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 4rem;
+            font-weight: 400;
+            margin: 10px 0;
+            color: #FFF;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-top: 10px;
+        }
+
+        /* Countdown */
+        .countdown {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .time-box {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 12px 18px;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+
+        .time-box span {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .time-box label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Section Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .divider {
+            width: 80px;
+            height: 2px;
+            background-color: var(--accent-gold);
+            margin: 15px auto 30px auto;
+        }
+
+        /* Hosts Message */
+        .host-card {
+            background: var(--white);
+            padding: 40px 25px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #EAEAEA;
+            margin-bottom: 40px;
+        }
+
+        /* Event Cards */
+        .event-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .event-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-gold);
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-card h3 {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        .event-card .time-date {
+            font-weight: 600;
+            color: #555;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .btn-map {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 8px 20px;
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-map:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        /* RSVP Section */
+        .rsvp-section {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 50px 20px;
+            border-radius: 12px;
+            margin-top: 40px;
+        }
+
+        .rsvp-section h2 {
+            font-family: 'Cinzel', serif;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background-color: #25D366;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            font-size: 0.85rem;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 3rem; }
+            .hero h3 { font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <h3>Together With Their Families</h3>
+        <h1>Groom & Bride</h1>
+        <p>ARE GETTING MARRIED</p>
+        
+        <!-- COUNTDOWN TIMER -->
+        <div class="countdown" id="countdown">
+            <div class="time-box"><span id="days">00</span><label>Days</label></div>
+            <div class="time-box"><span id="hours">00</span><label>Hours</label></div>
+            <div class="time-box"><span id="mins">00</span><label>Mins</label></div>
+            <div class="time-box"><span id="secs">00</span><label>Secs</label></div>
+        </div>
+    </section>
+
+    <!-- HOST WELCOME MESSAGE -->
+    <section class="container">
+        <div class="host-card">
+            <h2 class="section-title">Invitation</h2>
+            <div class="divider"></div>
+            <p>We warmly invite you to celebrate the wedding ceremony of our son</p>
+            <h2 style="font-family: 'Cinzel', serif; color: var(--primary-color); margin: 15px 0;">[GROOM NAME]</h2>
+            <p>with</p>
+            <h2 style="font-family: 'Cinzel', serif; color: var(--primary-color); margin: 15px 0;">[BRIDE NAME]</h2>
+            <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">(Daughter of [Bride's Parents Names])</p>
+            <p style="margin-top: 20px; font-style: italic;">"Your presence and blessings will add joy to our celebrations."</p>
+            <p style="margin-top: 15px; font-weight: 600; color: var(--accent-gold);">- Hosted by [Groom's Parents / Family Name]</p>
+        </div>
+
+        <!-- EVENTS TIMELINE -->
+        <h2 class="section-title">Wedding Events</h2>
+        <div class="divider"></div>
+
+        <div class="event-grid">
+            <!-- Event 1 -->
+            <div class="event-card">
+                <h3>Haldi & Chooda</h3>
+                <div class="time-date">
+                    <i class="far fa-calendar-alt"></i> Date to be announced<br>
+                    <i class="far fa-clock"></i> 10:00 AM Onwards
+                </div>
+                <p><strong>Dress Code:</strong> Traditional Yellow</p>
+                <p><strong>Venue:</strong> Groom's Residence / Venue</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Get Directions</a>
+            </div>
+
+            <!-- Event 2 -->
+            <div class="event-card">
+                <h3>Wedding Ceremony</h3>
+                <div class="time-date">
+                    <i class="far fa-calendar-alt"></i> Date to be announced<br>
+                    <i class="far fa-clock"></i> Muhurtham Time
+                </div>
+                <p><strong>Dress Code:</strong> Traditional Silk / Formal</p>
+                <p><strong>Venue:</strong> Convention Hall / Temple</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Get Directions</a>
+            </div>
+
+            <!-- Event 3 -->
+            <div class="event-card">
+                <h3>Grand Reception</h3>
+                <div class="time-date">
+                    <i class="far fa-calendar-alt"></i> Date to be announced<br>
+                    <i class="far fa-clock"></i> 7:00 PM Onwards
+                </div>
+                <p><strong>Dress Code:</strong> Evening Elegant / Indo-Western</p>
+                <p><strong>Venue:</strong> Grand Ballroom / Hotel</p>
+                <a href="https://maps.google.com" target="_blank" class="btn-map"><i class="fas fa-location-dot"></i> Get Directions</a>
+            </div>
+        </div>
+
+        <!-- RSVP SECTION -->
+        <div class="rsvp-section">
+            <h2>Are You Attending?</h2>
+            <p>Please confirm your arrival to help us make comfortable arrangements for you.</p>
+            <a href="https://wa.me/910000000000?text=Hi,%20I%20will%20be%20attending%20the%20wedding!" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> RSVP via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>With Best Compliments From Friends & Family</p>
+    </footer>
+
+    <!-- JS FOR COUNTDOWN TIMER -->
+    <script>
+        // Set wedding target date here (YYYY-MM-DD format)
+        const weddingDate = new Date("2026-12-31T00:00:00").getTime();
+
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("mins").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("secs").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "<h3>The Celebration Has Begun!</h3>";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
