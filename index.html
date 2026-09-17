@@ -8,298 +8,63 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <style>
-    :root {
-      --bg: #0d141c;
-      --panel: rgba(52, 61, 68, 0.92);
-      --text: #f2f5f7;
-      --muted: #d2d6d9;
-      --image-bg: #e7dfd4;
-      --seal: #2e3f7d;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html, body {
-      height: 100%;
-      background: var(--bg);
-      font-family: 'Inter', sans-serif;
-      color: var(--text);
-    }
-
-    body {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
-      letter-spacing: -0.02em;
-    }
-
-    .page-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 80%, rgba(255,255,255,0.04), transparent 25%),
-        radial-gradient(circle at 80% 20%, rgba(255,255,255,0.03), transparent 20%);
-      overflow: hidden;
-    }
-
-    .pattern {
-      position: absolute;
-      inset: 0;
-      opacity: 0.18;
-      background-image:
-        radial-gradient(circle at 30% 30%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 70% 50%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 45% 80%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 20% 70%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 85% 30%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px),
-        radial-gradient(circle at 60% 20%, rgba(255,255,255,0.7) 0 2px, transparent 2.5px);
-      background-size: 160px 160px;
-      filter: blur(0.2px);
-    }
-
-    .phone-frame {
-      position: relative;
-      width: min(96vw, 1380px);
-      height: min(92vh, 780px);
-      border-radius: 18px;
-      overflow: hidden;
-      background: rgba(13,20,28,0.9);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 30px 80px rgba(0,0,0,0.45);
-    }
-
-    .chat-wrap {
-      height: 100%;
-      position: relative;
-      padding: 38px 30px 24px 30px;
-    }
-
-    .header-row {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      font-size: clamp(2rem, 2.5vw, 4rem);
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 22px;
-      padding-left: 14px;
-      padding-top: 6px;
-    }
-
-    .header-row .arrow {
-      font-size: clamp(2.1rem, 2vw, 3.2rem);
-      line-height: 1;
-      transform: translateY(-2px);
-      opacity: 0.95;
-    }
-
-    .msg-card {
-      width: min(94%, 1230px);
-      height: 260px;
-      margin-left: 0;
-      border-radius: 26px 26px 26px 24px;
-      background: rgba(52, 61, 68, 0.95);
-      display: flex;
-      align-items: stretch;
-      overflow: hidden;
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
-      position: relative;
-    }
-
-    .image-box {
-      flex: 0 0 280px;
-      background: var(--image-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      padding: 16px;
-    }
-
-    .seal {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      background: linear-gradient(145deg, #2a3352, #1f2945);
-      box-shadow: inset 0 0 0 10px rgba(255,255,255,0.04), inset 0 0 30px rgba(0,0,0,0.25);
-      position: relative;
-      transform: translateY(-4px);
-    }
-
-    .seal::before {
-      content: "";
-      position: absolute;
-      inset: 16px;
-      border-radius: 50%;
-      border: 2px solid rgba(255,255,255,0.18);
-      background: rgba(0,0,0,0.08);
-    }
-
-    .seal::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 55%);
-    }
-
-    .card-content {
-      flex: 1;
-      padding: 18px 26px 18px 26px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      min-width: 0;
-    }
-
-    .title {
-      font-size: clamp(2.2rem, 2.8vw, 4.3rem);
-      line-height: 1.08;
-      font-weight: 700;
-      letter-spacing: -0.06em;
-      color: var(--text);
-      margin-bottom: 12px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    .subtitle {
-      font-size: clamp(1.1rem, 1.5vw, 2.3rem);
-      color: var(--muted);
-      line-height: 1.4;
-      font-weight: 400;
-      margin-bottom: 18px;
-      white-space: normal;
-    }
-
-    .link-row {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      margin-top: 4px;
-      font-size: clamp(1.3rem, 1.8vw, 2.6rem);
-      font-weight: 500;
-      color: var(--text);
-      max-width: 100%;
-    }
-
-    .link-icon {
-      font-size: clamp(1.2rem, 1.5vw, 2.1rem);
-      opacity: 0.9;
-      transform: translateY(-2px);
-    }
-
-    .link-text {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      color: var(--text);
-      opacity: 0.96;
-    }
-
-    .time {
-      position: absolute;
-      right: 42px;
-      bottom: 28px;
-      font-size: clamp(1.7rem, 2vw, 3rem);
-      color: rgba(255,255,255,0.9);
-      font-weight: 400;
-      letter-spacing: -0.05em;
-    }
-
-    .small-icon {
-      position: absolute;
-      left: 20px;
-      bottom: 22px;
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    .forward-badge {
-      position: absolute;
-      right: 48px;
-      top: 52%;
-      transform: translateY(-50%);
-      width: 120px;
-      height: 120px;
-      opacity: 0.95;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .forward-badge::before {
-      content: "↗";
-      font-size: 5.7rem;
-      line-height: 1;
-      font-weight: 300;
-      color: rgba(255,255,255,0.96);
-      display: block;
-    }
-
-    @media (max-width: 920px) {
-      body { padding: 10px; }
-      .phone-frame {
-        width: 100vw;
-        height: 100vh;
-        border-radius: 0;
-      }
-
-      .chat-wrap { padding: 30px 16px 16px; }
-      .header-row { margin-bottom: 18px; padding-left: 2px; }
-      .msg-card {
-        width: 100%;
-        height: auto;
-        min-height: 220px;
-      }
-      .image-box { flex-basis: 180px; }
-      .seal { width: 120px; height: 120px; }
-      .title { white-space: normal; }
-      .link-row { font-size: 1.1rem; gap: 10px; }
-      .time { right: 18px; bottom: 18px; }
-      .forward-badge { right: 18px; width: 80px; height: 80px; }
-      .forward-badge::before { font-size: 3.5rem; }
+    :root { --bg:#0d141c; --text:#f2f5f7; --muted:#d2d6d9; --image-bg:#e7dfd4; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html, body { height:100%; background:var(--bg); font-family:'Inter',sans-serif; color:var(--text); }
+    body { display:flex; align-items:center; justify-content:center; min-height:100vh; overflow:hidden; position:relative; letter-spacing:-0.02em; }
+    .page-bg { position:absolute; inset:0; background:radial-gradient(circle at 20% 80%,rgba(255,255,255,.04),transparent 25%),radial-gradient(circle at 80% 20%,rgba(255,255,255,.03),transparent 20%); overflow:hidden; }
+    .pattern { position:absolute; inset:0; opacity:.18; background-image:radial-gradient(circle at 30% 30%,rgba(255,255,255,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 70% 50%,rgba(255,255,255,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 45% 80%,rgba(255,255,255,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 20% 70%,rgba(255,255,255,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 85% 30%,rgba(255,255,255,.7) 0 2px,transparent 2.5px),radial-gradient(circle at 60% 20%,rgba(255,255,255,.7) 0 2px,transparent 2.5px); background-size:160px 160px; filter:blur(.2px); }
+    .phone-frame { position:relative; width:min(96vw,1380px); height:min(92vh,780px); border-radius:18px; overflow:hidden; background:rgba(13,20,28,.9); border:1px solid rgba(255,255,255,.08); box-shadow:0 30px 80px rgba(0,0,0,.45); }
+    .chat-wrap { height:100%; position:relative; padding:38px 30px 24px; }
+    .header-row { display:flex; align-items:center; gap:14px; font-size:clamp(2rem,2.5vw,4rem); font-weight:700; margin-bottom:22px; padding:6px 0 0 14px; }
+    .header-row .arrow { font-size:clamp(2.1rem,2vw,3.2rem); line-height:1; transform:translateY(-2px); }
+    .msg-card { width:min(94%,1230px); height:260px; border-radius:26px 26px 26px 24px; background:rgba(52,61,68,.95); display:flex; overflow:hidden; position:relative; }
+    .image-box { flex:0 0 280px; background:var(--image-bg); display:flex; align-items:center; justify-content:center; padding:16px; }
+    .seal { width:180px; height:180px; border-radius:50%; background:linear-gradient(145deg,#2a3352,#1f2945); box-shadow:inset 0 0 0 10px rgba(255,255,255,.04),inset 0 0 30px rgba(0,0,0,.25); position:relative; }
+    .seal::before { content:""; position:absolute; inset:16px; border-radius:50%; border:2px solid rgba(255,255,255,.18); background:rgba(0,0,0,.08); }
+    .seal::after { content:""; position:absolute; inset:0; border-radius:50%; background:linear-gradient(135deg,rgba(255,255,255,.08),transparent 55%); }
+    .card-content { flex:1; padding:18px 26px; display:flex; flex-direction:column; justify-content:center; min-width:0; }
+    .title { font-size:clamp(2.2rem,2.8vw,4.3rem); line-height:1.08; font-weight:700; letter-spacing:-.06em; margin-bottom:12px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+    .subtitle { font-size:clamp(1.1rem,1.5vw,2.3rem); color:var(--muted); line-height:1.4; margin-bottom:18px; }
+    .link-row { display:flex; align-items:center; gap:16px; margin-top:4px; font-size:clamp(1.3rem,1.8vw,2.6rem); font-weight:500; max-width:100%; }
+    .link-icon { font-size:clamp(1.2rem,1.5vw,2.1rem); }
+    .link-text { white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--text); text-decoration:none; }
+    .time { position:absolute; right:42px; bottom:28px; font-size:clamp(1.7rem,2vw,3rem); color:rgba(255,255,255,.9); }
+    .small-icon { position:absolute; left:20px; bottom:22px; width:42px; height:42px; border-radius:12px; background:rgba(255,255,255,.1); display:flex; align-items:center; justify-content:center; font-size:1.1rem; }
+    .forward-badge { position:absolute; right:48px; top:52%; transform:translateY(-50%); width:120px; height:120px; display:flex; align-items:center; justify-content:center; }
+    .forward-badge::before { content:"↗"; font-size:5.7rem; line-height:1; font-weight:300; color:rgba(255,255,255,.96); }
+    @media (max-width:920px) {
+      body { padding:10px; }
+      .phone-frame { width:100vw; height:100vh; border-radius:0; }
+      .chat-wrap { padding:30px 16px 16px; }
+      .header-row { margin-bottom:18px; padding-left:2px; }
+      .msg-card { width:100%; height:auto; min-height:220px; }
+      .image-box { flex-basis:180px; }
+      .seal { width:120px; height:120px; }
+      .title { white-space:normal; }
+      .link-row { font-size:1.1rem; gap:10px; }
+      .time { right:18px; bottom:18px; }
+      .forward-badge { right:18px; width:80px; height:80px; }
+      .forward-badge::before { font-size:3.5rem; }
     }
   </style>
 </head>
 <body>
-  <div class="page-bg">
-    <div class="pattern"></div>
-  </div>
-
+  <div class="page-bg"><div class="pattern"></div></div>
   <div class="phone-frame">
     <div class="chat-wrap">
-      <div class="header-row">
-        <span class="arrow">↗</span>
-        <span>Forwarded</span>
-      </div>
-
+      <div class="header-row"><span class="arrow">↗</span><span>Forwarded</span></div>
       <div class="msg-card">
-        <div class="image-box">
-          <div class="seal"></div>
-        </div>
-
+        <div class="image-box"><div class="seal"></div></div>
         <div class="card-content">
           <div class="title">Amiya &amp; Pratheek</div>
           <div class="subtitle">This invitation is exclusively for ...</div>
           <div class="link-row">
             <span class="link-icon">🔗</span>
-            <span class="link-text">pratheekandamiya.thedigitalyes.com</span>
+            <a class="link-text" href="https://manvithpshetty2000-byte.github.io/wedding-invitation-template/" target="_blank" rel="noopener">manvithpshetty2000-byte.github.io/...</a>
           </div>
         </div>
       </div>
-
       <div class="forward-badge"></div>
       <div class="time">11:36 pm</div>
       <div class="small-icon">📷</div>
