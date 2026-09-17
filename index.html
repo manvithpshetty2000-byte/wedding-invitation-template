@@ -10,14 +10,9 @@
   <style>
     :root {
       --bg: #0d141c;
-      --bg-2: #1c232b;
       --panel: rgba(52, 61, 68, 0.92);
-      --panel-2: rgba(44, 52, 58, 0.95);
       --text: #f2f5f7;
       --muted: #d2d6d9;
-      --soft: #a7adb5;
-      --gold: #d9dfe6;
-      --border: rgba(255,255,255,0.08);
       --image-bg: #e7dfd4;
       --seal: #2e3f7d;
     }
@@ -72,7 +67,7 @@
       border-radius: 18px;
       overflow: hidden;
       background: rgba(13,20,28,0.9);
-      border: 1px solid var(--border);
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 30px 80px rgba(0,0,0,0.45);
     }
 
@@ -122,7 +117,6 @@
       justify-content: center;
       position: relative;
       padding: 16px;
-      border-radius: 0 0 0 0;
     }
 
     .seal {
@@ -251,13 +245,17 @@
       line-height: 1;
       font-weight: 300;
       color: rgba(255,255,255,0.96);
-      transform: rotate(0deg);
       display: block;
     }
 
     @media (max-width: 920px) {
       body { padding: 10px; }
-      .phone-frame { width: 100vw; height: 100vh; border-radius: 0; }
+      .phone-frame {
+        width: 100vw;
+        height: 100vh;
+        border-radius: 0;
+      }
+
       .chat-wrap { padding: 30px 16px 16px; }
       .header-row { margin-bottom: 18px; padding-left: 2px; }
       .msg-card {
@@ -297,7 +295,7 @@
           <div class="subtitle">This invitation is exclusively for ...</div>
           <div class="link-row">
             <span class="link-icon">🔗</span>
-            <span class="link-text">pratheekandamiya.thedi...</span>
+            <span class="link-text">pratheekandamiya.thedigitalyes.com</span>
           </div>
         </div>
       </div>
